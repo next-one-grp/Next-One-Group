@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Next One AI — Intelligence Artificielle</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <script defer src="js/main.js"></script>
+  <style>
+    .ai-card {
+      border: 2px solid #8e44ad60;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 300px;
+      display: inline-block;
+      vertical-align: top;
+      background: #1a1a1a;
+    }
+    .ai-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px #8e44ad80;
+    }
+    .ai-card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+    .ai-container {
+      text-align: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #111;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  min-height: 100px;
+}
+
+nav img {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 100%;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 5px 0;
+  position: relative;
+}
+
+nav a:hover {
+  color: #0a1aff;
+}
+
+/* Effet de soulignement au survol */
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0a1aff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Style pour la page active */
+nav a.active {
+  color: #0a1aff;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+    min-height: auto;
+  }
+  
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+  }
+  
+  nav li {
+    height: 50px;
+  }
+  
+  nav a {
+    height: auto;
+  }
+  
+  nav a::after {
+    bottom: 5px;
+  }
+}
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="assets/logo.png" alt="Next One">
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li><a href="branches.html">Branches</a></li>
+    <li><a href="security.html">Security</a></li>
+  </ul>
+</nav>
+
+<section>
+  <h2 class="section-title">Next One AI</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    Next One AI est la branche dédiée à l’intelligence artificielle. Même en travaillant seule, je développe des projets IA simples et fonctionnels, tels que des chatbots, des assistants virtuels et des scripts intelligents pour mes sites et logiciels.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Compétences et Services</h2>
+  <div class="ai-container">
+    <div class="ai-card">
+      <img src="assets/ai.png" alt="Chatbot">
+      <h3>Chatbots et Assistants</h3>
+      <p>Création de chatbots et assistants virtuels pour répondre à des questions simples et aider à automatiser certaines tâches sur mes projets web.</p>
+    </div>
+
+    <div class="ai-card">
+      <img src="assets/ai.png" alt="Automatisation">
+      <h3>Automatisation</h3>
+      <p>Scripts et outils pour automatiser des tâches répétitives dans mes projets web, logiciels et tests de prototypes.</p>
+    </div>
+
+    <div class="ai-card">
+      <img src="assets/ai.png" alt="Analyse de données">
+      <h3>Analyse de données</h3>
+      <p>Expérimentation avec des données simples pour générer des insights et apprendre à créer des systèmes d’aide à la décision.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Projets Solo</h2>
+  <div class="ai-container">
+    <div class="ai-card">
+      <h3>Chatbot Web</h3>
+      <p>Chatbot intégré à mon site portfolio pour répondre automatiquement aux questions simples des visiteurs.</p>
+    </div>
+    <div class="ai-card">
+      <h3>Assistant de Tâches</h3>
+      <p>Mini assistant pour automatiser certaines tâches sur mes projets logiciels ou sites web.</p>
+    </div>
+    <div class="ai-card">
+      <h3>Analyse Prédictive</h3>
+      <p>Projet expérimental pour prédire certaines actions ou résultats sur de petites données, afin de tester mes compétences IA.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Mission et Objectifs</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    La mission de Next One AI est de développer mes compétences en intelligence artificielle et de créer des projets concrets et fonctionnels.  
+    Objectif immédiat : maîtriser le développement de chatbots, assistants et scripts IA.  
+    Objectif long terme : intégrer l’IA dans tous les projets de Next One pour améliorer l’efficacité et la qualité des services.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Vision Future</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    À l’avenir, Next One AI pourra proposer des services IA professionnels, créer des solutions pour des clients, et compléter toutes les autres branches de Next One, de l’IT aux jeux vidéo, en passant par les logiciels et le hardware.
+  </p>
+</section>
+
+<footer>
+  © 2026 Next One Group — Tous droits réservés
+</footer>
+
+</body>
+</html>

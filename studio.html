@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Next One Studio — Jeux Vidéo et Prototypes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <script defer src="js/main.js"></script>
+  <style>
+    .studio-card {
+      border: 2px solid #ffae00a0;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 300px;
+      display: inline-block;
+      vertical-align: top;
+      background: #1a1a1a;
+    }
+    .studio-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px #ffae0080;
+    }
+    .studio-card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+    .studio-container {
+      text-align: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #111;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  min-height: 100px;
+}
+
+nav img {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 100%;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 5px 0;
+  position: relative;
+}
+
+nav a:hover {
+  color: #0a1aff;
+}
+
+/* Effet de soulignement au survol */
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0a1aff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Style pour la page active */
+nav a.active {
+  color: #0a1aff;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+    min-height: auto;
+  }
+  
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+  }
+  
+  nav li {
+    height: 50px;
+  }
+  
+  nav a {
+    height: auto;
+  }
+  
+  nav a::after {
+    bottom: 5px;
+  }
+}
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="assets/logo.png" alt="Next One">
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li><a href="branches.html">Branches</a></li>
+    <li><a href="security.html">Security</a></li>
+  </ul>
+</nav>
+
+<section>
+  <h2 class="section-title">Next One Studio</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    Next One Studio est la branche dédiée à la création de jeux vidéo. Même en travaillant seule, je développe des prototypes 2D et 3D pour apprendre les mécaniques de jeu, le design et la programmation.  
+    L’objectif est de montrer mon potentiel et de préparer des projets plus complexes à l’avenir.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Compétences et Services</h2>
+  <div class="studio-container">
+    <div class="studio-card">
+      <img src="assets/studio.png" alt="Développement Jeux">
+      <h3>Développement Jeux 2D/3D</h3>
+      <p>Création de mini-jeux en solo avec Unity ou Godot, intégration de personnages, IA simple et mécaniques de base.</p>
+    </div>
+
+    <div class="studio-card">
+      <img src="assets/studio.png" alt="Design Graphique">
+      <h3>Design Graphique</h3>
+      <p>Création de sprites, backgrounds et interfaces de jeu pour des prototypes visuellement attractifs.</p>
+    </div>
+
+    <div class="studio-card">
+      <img src="assets/studio.png" alt="Prototypes">
+      <h3>Prototypage Rapide</h3>
+      <p>Tester rapidement des idées et mécaniques de jeu pour améliorer les compétences et préparer des projets plus complexes.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Projets Solo</h2>
+  <div class="studio-container">
+    <div class="studio-card">
+      <h3>Mini RPG 2D</h3>
+      <p>Prototype de jeu 2D avec exploration, combats simples et inventaire pour expérimenter la logique et le gameplay.</p>
+    </div>
+    <div class="studio-card">
+      <h3>Jeu de Plateforme</h3>
+      <p>Prototype de jeu plateforme avec niveaux, obstacles et score pour tester l’IA et la physique du jeu.</p>
+    </div>
+    <div class="studio-card">
+      <h3>Mini Simulation 3D</h3>
+      <p>Prototype 3D simple avec terrain, caméra et contrôles basiques pour comprendre le développement en trois dimensions.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Mission et Objectifs</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    La mission de Next One Studio est d’apprendre, expérimenter et créer des jeux crédibles même en solo.  
+    Objectif immédiat : maîtriser la création de prototypes fonctionnels.  
+    Objectif long terme : créer des jeux plus complexes et éventuellement constituer un petit studio avec des collaborateurs.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Vision Future</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    À l’avenir, Next One Studio pourra produire des jeux commerciaux et collaborer avec d’autres développeurs. Chaque projet solo actuel prépare la compétence, le portfolio et la crédibilité nécessaires pour construire un vrai studio indépendant.
+  </p>
+</section>
+
+<footer>
+  © 2026 Next One Group — Tous droits réservés
+</footer>
+
+</body>
+</html>

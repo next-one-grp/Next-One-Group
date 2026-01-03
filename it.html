@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Next One IT — Technologie et Sites Web</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <script defer src="js/main.js"></script>
+  <style>
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #111;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  min-height: 100px;
+}
+
+nav img {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 100%;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 5px 0;
+  position: relative;
+}
+
+nav a:hover {
+  color: #0a1aff;
+}
+
+/* Effet de soulignement au survol */
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0a1aff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Style pour la page active */
+nav a.active {
+  color: #0a1aff;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+    min-height: auto;
+  }
+  
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+  }
+  
+  nav li {
+    height: 50px;
+  }
+  
+  nav a {
+    height: auto;
+  }
+  
+  nav a::after {
+    bottom: 5px;
+  }
+}
+
+/* ===== MENU LATERAL ===== */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: #fff;
+  background: #0a1aff;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: #111;
+  box-shadow: 5px 0 30px rgba(0,0,0,0.8);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: left 0.35s ease;
+  z-index: 1002;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-logo {
+  width: 120px;
+  margin: 0 auto 30px;
+}
+
+.sidebar a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 12px 15px;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+  background: #0a1aff;
+  color: #fff;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ===== ADAPTATION CONTENU ===== */
+body {
+  padding-left: 0;
+}
+
+/* PC : menu toujours visible */
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .sidebar {
+    left: 0;
+  }
+
+  body {
+    padding-left: 260px;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
+
+/* Mobile / tablette */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.3em;
+  }
+
+  .hero p {
+    font-size: 1.1em;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Bouton Menu -->
+<div class="menu-toggle" onclick="toggleMenu()">
+  ☰
+</div>
+
+<!-- Overlay sombre -->
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<!-- Menu latéral -->
+<aside class="sidebar">
+  <img src="assets/logo.png" alt="Next One" class="sidebar-logo">
+
+  <a href="index.html">Accueil</a>
+  <a href="about.html">À propos</a>
+  <a href="branches.html">Branches</a>
+  <a href="security.html">Security</a>
+</aside>
+
+
+<section>
+  <h2 class="section-title">Next One IT</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    Next One IT est la branche principale de mon entreprise personnelle. À 17 ans, j'ai commencé à développer des sites web, des outils numériques et des solutions simples pour moi et mon entourage. Chaque projet est une occasion de tester de nouvelles technologies et de créer des produits fiables et accessibles.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Services</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Sites Web</h3>
+      <p>Création de sites vitrines, portfolios et e-commerce simples mais fonctionnels. Chaque site est conçu pour être responsive et facile à gérer.</p>
+    </div>
+    <div class="card">
+      <h3>Maintenance et Support</h3>
+      <p>Mise à jour des sites, correction de bugs, optimisation du code et amélioration des performances pour assurer un fonctionnement fiable.</p>
+    </div>
+    <div class="card">
+      <h3>Solutions Numériques</h3>
+      <p>Petits outils personnalisés pour automatiser des tâches comme la gestion des contacts, des réservations ou des inventaires pour des projets personnels ou locaux.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Projets Réalisés</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Portfolio Personnel</h3>
+      <p>Site web pour présenter mes compétences et projets personnels en HTML, CSS et JS. Prototype interactif et responsive.</p>
+    </div>
+    <div class="card">
+      <h3>Site d'Association Locale</h3>
+      <p>Refonte du site web pour une association, intégration d’un calendrier d’événements et formulaire de contact fonctionnel.</p>
+    </div>
+    <div class="card">
+      <h3>Mini Boutique en Ligne</h3>
+      <p>Prototype e-commerce pour tester le paiement sécurisé et la gestion de commandes simples.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Mission et Objectifs</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    Offrir des solutions informatiques fiables et accessibles. Mon objectif est de maîtriser chaque projet en solo tout en créant un portfolio solide et crédible pour l'avenir. Les projets sont conçus pour évoluer vers des systèmes plus complexes, intégrant éventuellement des IA et des outils avancés.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Vision Future</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    À mesure que je gagne en expérience, Next One IT pourra évoluer vers des projets collaboratifs plus complexes. Je vise à créer une vraie présence professionnelle en offrant des services de qualité à de petites entreprises et collectivités, tout en continuant à développer mes compétences techniques.
+  </p>
+</section>
+
+<footer>
+  © 2026 Next One Group — Tous droits réservés
+</footer>
+<script>
+  function toggleMenu() {
+    document.querySelector('.sidebar').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+  }
+</script>
+</body>
+</html>

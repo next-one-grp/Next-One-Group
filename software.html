@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Next One Software — Logiciels et Applications</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <script defer src="js/main.js"></script>
+  <style>
+    .software-card {
+      border: 2px solid #3498db60;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 300px;
+      display: inline-block;
+      vertical-align: top;
+      background: #1a1a1a;
+    }
+    .software-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px #3498db80;
+    }
+    .software-card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+    .software-container {
+      text-align: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #111;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  min-height: 100px;
+}
+
+nav img {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 100%;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 5px 0;
+  position: relative;
+}
+
+nav a:hover {
+  color: #0a1aff;
+}
+
+/* Effet de soulignement au survol */
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0a1aff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Style pour la page active */
+nav a.active {
+  color: #0a1aff;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+    min-height: auto;
+  }
+  
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+  }
+  
+  nav li {
+    height: 50px;
+  }
+  
+  nav a {
+    height: auto;
+  }
+  
+  nav a::after {
+    bottom: 5px;
+  }
+}
+
+/* ===== MENU LATERAL ===== */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: #fff;
+  background: #0a1aff;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: #111;
+  box-shadow: 5px 0 30px rgba(0,0,0,0.8);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: left 0.35s ease;
+  z-index: 1002;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-logo {
+  width: 120px;
+  margin: 0 auto 30px;
+}
+
+.sidebar a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 12px 15px;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+  background: #0a1aff;
+  color: #fff;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ===== ADAPTATION CONTENU ===== */
+body {
+  padding-left: 0;
+}
+
+/* PC : menu toujours visible */
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .sidebar {
+    left: 0;
+  }
+
+  body {
+    padding-left: 260px;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
+
+/* Mobile / tablette */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.3em;
+  }
+
+  .hero p {
+    font-size: 1.1em;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Bouton Menu -->
+<div class="menu-toggle" onclick="toggleMenu()">
+  ☰
+</div>
+
+<!-- Overlay sombre -->
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<!-- Menu latéral -->
+<aside class="sidebar">
+  <img src="assets/logo.png" alt="Next One" class="sidebar-logo">
+
+  <a href="index.html">Accueil</a>
+  <a href="about.html">À propos</a>
+  <a href="branches.html">Branches</a>
+  <a href="security.html">Security</a>
+</aside>
+
+
+<section>
+  <h2 class="section-title">Next One Software</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    Next One Software est la branche dédiée au développement de logiciels et d’applications. Même en travaillant seule, je crée des outils numériques pour automatiser des tâches, gérer des projets et expérimenter de nouvelles fonctionnalités.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Compétences et Services</h2>
+  <div class="software-container">
+    <div class="software-card">
+      <img src="assets/software.png" alt="Logiciel Desktop">
+      <h3>Applications Desktop</h3>
+      <p>Développement de petits logiciels pour ordinateur, avec interfaces simples, fonctionnalités concrètes et utiles pour des projets solo.</p>
+    </div>
+
+    <div class="software-card">
+      <img src="assets/software.png" alt="Outils Web">
+      <h3>Outils Web</h3>
+      <p>Création d’outils et plateformes simples en ligne pour gérer des données, automatiser des tâches ou tester de nouvelles idées.</p>
+    </div>
+
+    <div class="software-card">
+      <img src="assets/software.png" alt="Automatisation">
+      <h3>Automatisation et Scripts</h3>
+      <p>Développement de scripts pour automatiser certaines actions dans mes projets web ou applications, afin de gagner du temps et tester l’efficacité.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Projets Solo</h2>
+  <div class="software-container">
+    <div class="software-card">
+      <h3>Gestionnaire de Tâches</h3>
+      <p>Application pour organiser mes projets et tâches personnelles, tester les interfaces utilisateur et les fonctionnalités logicielles.</p>
+    </div>
+    <div class="software-card">
+      <h3>Mini Logiciel de Calcul</h3>
+      <p>Prototype de logiciel pour effectuer des calculs spécifiques et automatiser des opérations simples, expérimentant la logique et l’UI.</p>
+    </div>
+    <div class="software-card">
+      <h3>Outil Web Interactif</h3>
+      <p>Plateforme en ligne pour gérer des informations et automatiser certaines actions, testant mes compétences backend et frontend.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Mission et Objectifs</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    La mission de Next One Software est de créer des logiciels fonctionnels, fiables et innovants, même en solo.  
+    Objectifs immédiats : maîtriser le développement d’applications simples et utiles.  
+    Objectifs long terme : créer des outils plus complexes et proposer des solutions logicielles professionnelles.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Vision Future</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    À l’avenir, Next One Software pourra produire des logiciels et applications pour de vrais clients, collaborer avec d’autres développeurs et enrichir toutes les autres branches de Next One.  
+    Chaque projet solo actuel construit les compétences, le portfolio et la crédibilité pour un futur succès professionnel.
+  </p>
+</section>
+
+<footer>
+  © 2026 Next One Group — Tous droits réservés
+</footer>
+<script>
+  function toggleMenu() {
+    document.querySelector('.sidebar').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+  }
+</script>
+</body>
+</html>

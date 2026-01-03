@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next One — À propos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <script defer src="js/main.js"></script>
+  <style>
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #111;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  min-height: 100px;
+}
+
+nav img {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 100%;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 5px 0;
+  position: relative;
+}
+
+nav a:hover {
+  color: #0a1aff;
+}
+
+/* Effet de soulignement au survol */
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0a1aff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Style pour la page active */
+nav a.active {
+  color: #0a1aff;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+    min-height: auto;
+  }
+  
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+  }
+  
+  nav li {
+    height: 50px;
+  }
+  
+  nav a {
+    height: auto;
+  }
+  
+  nav a::after {
+    bottom: 5px;
+  }
+}
+
+/* ===== MENU LATERAL ===== */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: #fff;
+  background: #0a1aff;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: #111;
+  box-shadow: 5px 0 30px rgba(0,0,0,0.8);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: left 0.35s ease;
+  z-index: 1002;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-logo {
+  width: 120px;
+  margin: 0 auto 30px;
+}
+
+.sidebar a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 12px 15px;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+  background: #0a1aff;
+  color: #fff;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ===== ADAPTATION CONTENU ===== */
+body {
+  padding-left: 0;
+}
+
+/* PC : menu toujours visible */
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .sidebar {
+    left: 0;
+  }
+
+  body {
+    padding-left: 260px;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
+
+/* Mobile / tablette */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.3em;
+  }
+
+  .hero p {
+    font-size: 1.1em;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+}
+
+.page-section {
+  padding: 80px 20px;
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Bouton Menu -->
+<div class="menu-toggle" onclick="toggleMenu()">
+  ☰
+</div>
+
+<!-- Overlay sombre -->
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<!-- Menu latéral -->
+<aside class="sidebar">
+  <img src="assets/logo.png" alt="Next One" class="sidebar-logo">
+
+  <a href="index.html">Accueil</a>
+  <a href="about.html">À propos</a>
+  <a href="branches.html">Branches</a>
+  <a href="security.html">Security</a>
+</aside>
+
+
+<section>
+  <h2 class="section-title">À propos de Next One</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    Next One est une entreprise technologique fondée par moi à l’âge de 17 ans. Mon objectif est simple : créer un écosystème complet regroupant IT, logiciels, IA, hardware, jeux vidéo et sécurité, tout en commençant seul et en construisant un portfolio solide et crédible.  
+    Chaque projet que je développe reflète ma passion pour la technologie et mon engagement à fournir des solutions fiables et innovantes.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Mon Histoire</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    Depuis mes premiers essais en HTML et CSS, j’ai toujours voulu créer des solutions numériques qui apportent de la valeur réelle. À 17 ans, j’ai décidé de transformer cette passion en une véritable entreprise : Next One.  
+    Chaque ligne de code que j’écris, chaque projet que je lance, fait partie de cette aventure pour construire une entreprise complète et moderne, capable d’évoluer vers un vrai empire technologique.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Mes Compétences</h2>
+  <ul style="max-width:700px; margin:auto; color:var(--gray);">
+    <li>Développement web : HTML, CSS, JavaScript</li>
+    <li>Création de logiciels et outils personnalisés</li>
+    <li>IA et automatisation : chatbots, assistants, scripts intelligents</li>
+    <li>Prototypage hardware et objets connectés simples</li>
+    <li>Développement de jeux vidéo 2D/3D et mini-prototypes</li>
+    <li>Conception de sites et expériences utilisateurs professionnelles</li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="section-title">Vision et Mission</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    La mission de Next One est de prouver qu’une seule personne, motivée et passionnée, peut créer des solutions complètes et professionnelles dans le monde de la technologie.  
+    Mon objectif est de développer mes compétences, créer un portfolio solide, attirer des premiers clients et partenaires, et poser les bases d’un futur écosystème complet avec plusieurs branches.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Objectifs Futurs</h2>
+  <p style="max-width:900px; margin:auto; text-align:center;">
+    Dans les années à venir, Next One pourra évoluer vers une véritable entreprise multi-branches : IT, Software, AI, Hardware, Studio et Security.  
+    Mon objectif immédiat est de consolider mes compétences, lancer des projets concrets, et créer un site complet et crédible qui montre le potentiel de Next One à tous ceux qui visitent le site.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Contact</h2>
+  <p style="text-align:center; max-width:900px; margin:auto;">
+    Même si je travaille seul pour l’instant, je suis ouvert aux collaborations, conseils et premiers clients. Vous pouvez me contacter via le formulaire sur la page <a href="index.html#contact">Accueil</a> ou par email à : <strong>contact.next.one.group@gmail.com</strong>.
+  </p>
+</section>
+
+<footer>
+  © 2026 Next One Group — Tous droits réservés
+</footer>
+<script>
+  function toggleMenu() {
+    document.querySelector('.sidebar').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+  }
+</script>
+</body>
+</html>
